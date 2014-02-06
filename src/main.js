@@ -4,7 +4,7 @@ var DogeHelper = (function () {
 
     function storeCryptsy(data) {
         return new Promise(function (resolve) {
-            resolve(data.return.markets.DOGE.lasttradeprice);
+            resolve(data.return.markets.WDC.lasttradeprice);
         });
     }
 
@@ -38,8 +38,8 @@ var DogeHelper = (function () {
             scheduleMarketData();
         }
         var promises = {};
-        promises.cryptsy = getJSON('http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=132').then(storeCryptsy);
-        promises.vircurex = getJSON('https://api.vircurex.com/api/get_last_trade.json?base=DOGE&alt=BTC').then(storeVircurex);
+        promises.cryptsy = getJSON('http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=14').then(storeCryptsy);
+        promises.vircurex = getJSON('https://api.vircurex.com/api/get_last_trade.json?base=WDC&alt=BTC').then(storeVircurex);
         Promise.any([promises.vircurex, promises.cryptsy]).then(DogeHelper.updateBadge);
         if (params.coindeskSuccess) {
             promises.coindesk =

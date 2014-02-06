@@ -30,7 +30,7 @@ function checkAlertThresholds(settled) {
             var vircurex = settled[1].isFulfilled() ? settled[1].value() : "Vircurex Error";
             var message = 'Cryptsy Price: ' + cryptsy + '\n';
             message += 'Vircurex Price: ' + vircurex;
-            DogeHelper.showNotification('Doge Price Alert', message);
+            DogeHelper.showNotification('Wdc Price Alert', message);
         }
     };
 }
